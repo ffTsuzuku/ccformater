@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      // ... other options
+      "lib": [
+        // ... other libs
+        "es2021"
+      ],
+      "target": "ES2020",
+      "outDir": "dist",
+    }
+  }
+  
