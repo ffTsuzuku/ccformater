@@ -1,7 +1,10 @@
 import { readFileSync, writeFileSync } from 'fs';
+import minimist from 'minimist';
 async function main() {
+    const args = minimist(process.argv.slice(2));
+    const { file: fileName, output: outputName } = args;
     const sentencesPerPara = 5;
-    const file = readFileSync('./subs/f1.txt');
+    const file = readFileSync(`./subs/${fileName}`);
     let formatedFile = file.toString().replace(/\n/g, ' ');
     let copy = formatedFile;
     let charShift = 0;
@@ -20,6 +23,6 @@ async function main() {
             sentenceCount = 0;
         }
     }
-    writeFileSync('./output/output.txt', formatedFile);
+    writeFileSync(`./output/${outputName}`, formatedFile);
 }
 main();
